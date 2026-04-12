@@ -6,7 +6,7 @@
 /*   By: artavagy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 22:27:56 by artavagy          #+#    #+#             */
-/*   Updated: 2026/04/11 19:31:24 by tyeghiaz         ###   ########.fr       */
+/*   Updated: 2026/04/12 16:42:25 by artavagy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -35,6 +35,8 @@ typedef struct s_list
         int size;
 } t_stack;
 
+void	error_split(t_arg *args);
+void	free_split(t_arg *args);
 void	parsing(t_arg *args);
 
 size_t	ft_strlcpy(char dst[], const char src[], size_t size);
