@@ -14,11 +14,14 @@
 int	main(int argc, char *argv[])
 {
 	t_arg	args;
-
+	t_stack	a;
+	t_stack	b;
 	args.argc = argc;
 	args.argv = argv;
+	a = {NULL, 0};
+	b = {NULL, 0};
 	if (args.argc < 2)
 		return (0);
 	else
-		parsing(&args);
+		parsing(&args, &a);
 }

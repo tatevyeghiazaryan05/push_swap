@@ -23,12 +23,19 @@ t_node *ft_lstnew(int value)
         return (new_node);
 }
 
-void ft_lstadd_front(t_node **lst, t_node *new)
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
+        t_list *last;
+
         if (!lst || !new)
                 return ;
-        new ->next = *lst;
-        *lst = new;
+        if (*lst == NULL)
+        {
+                *lst = new;
+                return ;
+        }
+        last = ft_lstlast(*lst);
+        last->next = new;
 }
 
 void push_stack(t_stack *stack, int value)

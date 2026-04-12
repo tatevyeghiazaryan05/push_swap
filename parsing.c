@@ -49,7 +49,7 @@ static long	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void	parsing(t_arg	*args)
+void	parsing(t_arg	*args, t_stack	*stack)
 {
 	int		j;
 	int		i;
@@ -69,7 +69,7 @@ void	parsing(t_arg	*args)
 				nb = ft_atoi(args->split_tmp[j]);
 				if (nb == 2147483647)
 					error_split(args);
-				printf("%ld", nb);//call push_stack function
+				push_stack(stack, nb);
 			}
 			j++;
 		}

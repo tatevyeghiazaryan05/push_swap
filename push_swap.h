@@ -37,7 +37,11 @@ typedef struct s_list
 
 void	error_split(t_arg *args);
 void	free_split(t_arg *args);
-void	parsing(t_arg *args);
+void	parsing(t_arg *args, t_stack  *stack);
+void    swap(t_stack *stack);
+void    push(t_stack *src_stack, t_stack *dst_stack);
+void	rotate(t_stack *stack);
+void	reverse_rotate(t_stack *stack);
 
 size_t	ft_strlcpy(char dst[], const char src[], size_t size);
 
