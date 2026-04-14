@@ -1,26 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helper_functions.c                                 :+:      :+:    :+:   */
+/*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tyeghiaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 19:57:23 by tyeghiaz          #+#    #+#             */
-/*   Updated: 2026/04/14 19:57:26 by tyeghiaz         ###   ########.fr       */
+/*   Created: 2026/04/14 20:23:49 by tyeghiaz          #+#    #+#             */
+/*   Updated: 2026/04/14 20:40:43 by tyeghiaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	duplicate_numbers(t_stack *stack, int  value)
-{	
-	t_node	*current;
-	current = stack->head;
-	while ( current != NULL)
-	{
-		if (current->value == value)
-			return (1);
-		current = current->next;
-	}
-	return (0);
-}
+double	compute_disorder()
