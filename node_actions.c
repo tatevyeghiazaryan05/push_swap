@@ -47,4 +47,4 @@ void push_stack(t_stack *stack, int value)
                 return ;
         ft_lstadd_front(&stack->head, new);
         stack->size++;
-}
+

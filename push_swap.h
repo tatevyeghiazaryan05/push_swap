@@ -42,12 +42,12 @@ void    swap(t_stack *stack);
 void    push(t_stack *src_stack, t_stack *dst_stack);
 void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
-
+void    ft_lstadd_back(t_list **lst, t_list *new);
 size_t	ft_strlcpy(char dst[], const char src[], size_t size);
 
 char	**ft_split(char const *s, char c);
 
 t_node	*ft_lstnew(void *content);
 
-void	ft_lstadd_back(t_list **lst, t_list *new);
+int     duplicate_numbers(t_stack *stack, int  value);
 #endif

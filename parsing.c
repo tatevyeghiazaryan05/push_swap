@@ -69,7 +69,10 @@ void	parsing(t_arg	*args, t_stack	*stack)
 				nb = ft_atoi(args->split_tmp[j]);
 				if (nb == 2147483647)
 					error_split(args);
-				push_stack(stack, nb);
+				if (duplicate_numbers(stack, (int)nb)
+					error_split(args);
+				else
+					push_stack(stack, nb);
 			}
 			j++;
 		}
