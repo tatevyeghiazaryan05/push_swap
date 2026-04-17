@@ -6,7 +6,7 @@
 /*   By: tyeghiaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 15:59:21 by tyeghiaz          #+#    #+#             */
-/*   Updated: 2026/04/12 16:36:38 by artavagy         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:24:03 by tyeghiaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,34 @@ void	push(t_stack *src_stack, t_stack *dst_stack)
 	dst_stack->size++;
 }
 
-void rotate(t_stack *stack)
+void	rotate(t_stack *stack)
 {
 	t_node	*last;
 	t_node	*first;
 
 	if (!stack || stack->size < 2)
-                return ;
+		return ;
 	first = stack->head;
 	last = stack->head;
-	while(last->next != NULL)
+	while (last->next != NULL)
 		last = last->next;
 	stack->head = first->next;
 	last->next = first;
 	first->next = NULL;
 }
 
-void reverse_rotate(t_stack *stack)
+void	reverse_rotate(t_stack *stack)
 {
 	t_node	*last;
 	t_node	*prev;
 
 	if (!stack || stack->size < 2)
-	    	return ;
+		return ;
 	prev = stack->head;
-	while(prev->next->next != NULL)
+	while (prev->next->next != NULL)
 		prev = prev->next;
 	last = prev->next;
 	prev->next = NULL;
 	last->next = stack->head;
-	stack->head = last; 
+	stack->head = last;
 }

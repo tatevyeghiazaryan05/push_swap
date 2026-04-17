@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: artavagy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/11 20:02:36 by artavagy          #+#    #+#             */
-/*   Updated: 2026/04/11 20:02:46 by artavagy         ###   ########.fr       */
+/*   Created: 2026/04/09 19:08:53 by artavagy          #+#    #+#             */
+/*   Updated: 2026/04/15 13:12:20 by tyeghiaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	error_exit(int i, t_args *args)
+int	ft_atoi(const char *str)
 {
-	if (i == 1)
-		free_double_pointer(args->args_str);
-	write(2, "Error\n", 6);
-	exit(1);
-}
+	long	result;
+	int		sign;
 
-void	free_double_pointer(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
+	result = 0;
+	sign = 1;
+	if (*str == '-' || *str == '+')
 	{
-		free(str[i]);
-		i++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	free(str);
+	while (*str)
+	{
+		result = (result * 10) + (*str - '0');
+		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
+			return (2147483647);
+		str++;
+	}
+	return (result * sign);
 }
