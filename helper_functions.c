@@ -6,7 +6,7 @@
 /*   By: tyeghiaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 19:57:23 by tyeghiaz          #+#    #+#             */
-/*   Updated: 2026/04/15 13:07:12 by tyeghiaz         ###   ########.fr       */
+/*   Updated: 2026/04/21 19:15:12 by tyeghiaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,11 +28,20 @@ int	duplicate_numbers(t_stack *stack, int value)
 int	activate_flags(char *str, t_args *args)
 {
 	if (!ft_strncmp(str, "--simple", 9))
+	{
 		args->simple = 1;
+		args->adaptive  = 0;
+	}
 	else if (!ft_strncmp(str, "--medium", 9))
+	{
 		args->medium = 1;
+		args->adaptive  = 0;
+	}	
 	else if (!ft_strncmp(str, "--complex", 10))
+	{
 		args->complex = 1;
+		args->adaptive  = 0;
+	}	
 	else if (!ft_strncmp(str, "--adaptive", 11))
 		args->adaptive = 1;
 	else if (!ft_strncmp(str, "--bench", 8))
@@ -51,6 +60,22 @@ void	zero_fill_struct(t_args *args)
 	args->simple = 0;
 	args->medium = 0;
 	args->complex = 0;
-	args->adaptive = 0;
+	args->adaptive = 1;
 	args->bench = 0;
+}
+
+int		is_sorted(t_stack *stack)
+{
+	t_node *cur;
+
+	if (stack ==NULL || stack->size < 2)
+		return(1);
+	cur = stack->head;
+	while (cur->next)
+	{
+		if (cur->value > cur->next->value)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
 }
